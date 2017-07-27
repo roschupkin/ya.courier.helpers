@@ -2,7 +2,6 @@ import argparse
 import sys
 
 from ya_courier_helpers.util import orders_batch_upload
-from ya_courier_helpers.config import ORDERS_BATCH_API_URL
 
 DELIMITER = '\t'
 LINE_FORMAT = '<order_number>{}<service_duration_in_seconds>'.format(DELIMITER)
@@ -20,6 +19,7 @@ def parse_args():
 def usage():
     return '\n\tcat input.txt | ya-courier-service-duration-uploader \\\n' + \
         '\t--token <YA.COURIER TOKEN> --company-id <YOUR COMPANY ID>\n\n' + \
+        'This tool gets from stdin a list of orders with service duration in secs and uploads it to Ya.Courier.\n\n' + \
         'Input file format for each line:\n' + \
         '{}\n\n'.format(LINE_FORMAT) + \
         'For Ya.Courier API documentation visit https://courier.common.yandex.ru/api/v1/howto\n\n'
@@ -36,10 +36,6 @@ def get_request_data(stream):
             print('Line {} has incorrect format and is skipped. Format: {}'.format(i, LINE_FORMAT))
 
     return request_data
-
-
-def get_api_url(company_id):
-    return ORDERS_BATCH_API_URL.format(company_id)
 
 
 def main():
