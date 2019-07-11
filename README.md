@@ -54,7 +54,7 @@ optional arguments:
 ```
 
 ```sh
-YA_COURIER_TOKEN=AQAA YA_COURIER_COMPANY_ID=1 ya-courier-solution-uploader -h 
+$ YA_COURIER_TOKEN=AQAA YA_COURIER_COMPANY_ID=1 ya-courier-solution-uploader -h 
 usage: 
         YA_COURIER_TOKEN=<YA.COURIER TOKEN> YA_COURIER_COMPANY_ID=<YOUR COMPANY ID> ya-courier-uploader --task-id <YOUR MVRP API TASK ID>
 
