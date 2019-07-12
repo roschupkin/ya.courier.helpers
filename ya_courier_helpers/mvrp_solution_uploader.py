@@ -305,7 +305,7 @@ def main():
             resp['result'],
             defaultdict(dict),
             req['depot'].get('ref', 'Склад'),
-            date=None
+            date=args.date
         )
 
 
