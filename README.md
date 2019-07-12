@@ -52,3 +52,20 @@ optional arguments:
   --token TOKEN         Your Oauth token in Ya.Courier
   --date DATE           The date you want to fix
 ```
+
+```sh
+$ YA_COURIER_TOKEN=AQAA YA_COURIER_COMPANY_ID=1 ya-courier-solution-uploader -h 
+usage: 
+        YA_COURIER_TOKEN=<YA.COURIER TOKEN> YA_COURIER_COMPANY_ID=<YOUR COMPANY ID> ya-courier-uploader --task-id <YOUR MVRP API TASK ID>
+
+This tool uploads MVRP solution to Ya.Courier Monitoring.
+
+For MVRP API documentation visit https://courier.common.yandex.ru/vrs/api/v1/doc
+For Ya.Courier API documentation visit https://courier.common.yandex.ru/api/v1/doc
+
+optional arguments:
+  -h, --help         show this help message and exit
+  --task-id TASK_ID  Your MVRP task ID to upload to Ya.Courier
+  --date DATE        Upload data to this date
+  --clear            Clear ALL data for this date
+```
