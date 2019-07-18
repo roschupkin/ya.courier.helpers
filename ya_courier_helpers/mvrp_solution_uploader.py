@@ -91,7 +91,7 @@ def upload_orders(locations, solution, orders_dict, phone):
 
     data = []
     for l in locations:
-        if l['id'] in loc2veh and not l['ref'].startswith('respawn_'):
+        if l['id'] in loc2veh and not l['ref'].startswith('respawn_') and not l['ref'].startswith('FAKE'):
             data.append({
                 'number': l['ref'],
                 'lat': l['point']['lat'],
@@ -136,7 +136,9 @@ def fix_orders(solution):
         new_orders = [
             x['node']['value']['ref']
             for x in r['route']
-            if x['node']['type'] == 'location' and not x['node']['value']['ref'].startswith('respawn_')
+            if x['node']['type'] == 'location'
+            and not x['node']['value']['ref'].startswith('respawn_')
+            and not x['node']['value']['ref'].startswith('FAKE')
         ]
         logging.info('Got {} new orders in route {}'.format(len(new_orders), route_number))
 
