@@ -47,7 +47,8 @@ def upload_depot(depot, depot_address):
 
 
 def upload_couriers(couriers):
-    j = post_request('couriers-batch', [{'number': c['ref'], 'name': c['ref']} for c in couriers])
+    # j = post_request('couriers-batch', [{'number': c['ref'], 'name': c['ref']} for c in couriers])
+    j = post_request('couriers-batch', [{'number': str(c['id']), 'name': c['ref']} for c in couriers])
     assert j['inserted'] + j['updated'] == len(couriers)
     logging.info('{} couriers uploaded'.format(len(couriers)))
 
@@ -63,7 +64,8 @@ def upload_routes(solution, depot):
                                         solution['options']['date']),
             'date': solution['options']['date'],
             'depot_number': depot.get('ref', str(depot['id'])),
-            'courier_number': veh_dict[r['vehicle_id']]['ref']
+            # 'courier_number': veh_dict[r['vehicle_id']]['ref']
+            'courier_number': str(r['vehicle_id'])
         } for r in solution['routes']
     ])
     assert j['inserted'] + j['updated'] == len(solution['routes'])
