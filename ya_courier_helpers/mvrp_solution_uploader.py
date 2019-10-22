@@ -129,7 +129,6 @@ def fix_orders(solution):
     }
 
     routes_dict = get_routes(solution['options']['date'])
-    order_numbers_dict = get_request('order-numbers?date={}'.format(solution['options']['date']))
 
     for r in solution['routes']:
         route_number = '{}-{}-{}'.format(veh_dict[r['vehicle_id']]['ref'], r['shift']['id'],
@@ -147,6 +146,9 @@ def fix_orders(solution):
         j = get_request(
             url='orders?route_id={}'.format(route_id)
         )
+
+        order_numbers_dict = {str(o['id']): o['number'] for o in j}
+
         # logging.info([order_numbers_dict[str(x['id'])] for x in j])
         # logging.info(new_orders)
         old_orders = [

@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='ya-courier-helpers',
-    version='1.0.3',
+    version='1.0.4',
     packages=find_packages(),
     url='https://github.com/roschupkin/ya.courier.helpers',
     license='Apache License 2.0',
