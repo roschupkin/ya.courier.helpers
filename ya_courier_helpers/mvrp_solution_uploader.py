@@ -141,6 +141,7 @@ def fix_orders(solution):
             and not x['node']['value']['ref'].startswith('respawn_')
             and not x['node']['value']['ref'].startswith('FAKE')
         ]
+        logging.info(','.join(new_orders))
         logging.info('Got {} new orders in route {}'.format(len(new_orders), route_number))
 
         j = get_request(
@@ -156,6 +157,7 @@ def fix_orders(solution):
             for x in j
             if order_numbers_dict[str(x['id'])] not in new_orders
         ]
+        logging.info(','.join(old_orders))
         logging.info('Found {} old orders in route {}'.format(len(old_orders), route_number))
 
         try:
@@ -294,6 +296,15 @@ def main():
     else:
         req = get_mvrp_request(args.task_id)
         resp = get_mvrp_solution(args.task_id)
+
+        for loc in req['locations']:
+            if not loc.get('ref'):
+                loc['ref'] = str(loc['id'])
+
+        for route in resp['result']['routes']:
+            for node in route['route']:
+                if not node['node']['value'].get('ref'):
+                    node['node']['value']['ref'] = str(node['node']['value']['id'])
 
         assert len({loc['ref'] for loc in req['locations']}) == \
             len({loc['ref'][:MAX_REF_LEN] for loc in req['locations']}), \
