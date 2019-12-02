@@ -20,7 +20,7 @@ def usage():
         '\t--token <YA.COURIER TOKEN> --company-id <YOUR COMPANY ID> --date YYYY-MM-DD\n\n' + \
         'This tool gets a list of orders for the date and searches for orders with the same phone number.\n If ' + \
         'these orders have different time intervals, it chooses the minimum one and change other orders with it.\n\n' +\
-        'For Ya.Courier API documentation visit https://courier.common.yandex.ru/api/v1/howto\n\n'
+        'For Ya.Courier API documentation visit https://courier.yandex.ru/api/v1/howto\n\n'
 
 
 def fix_time_intervals(orders):

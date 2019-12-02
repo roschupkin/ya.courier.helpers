@@ -22,7 +22,7 @@ def usage():
         'This tool gets from stdin a list of orders with service duration in secs and uploads it to Ya.Courier.\n\n' + \
         'Input file format for each line:\n' + \
         '{}\n\n'.format(LINE_FORMAT) + \
-        'For Ya.Courier API documentation visit https://courier.common.yandex.ru/api/v1/howto\n\n'
+        'For Ya.Courier API documentation visit https://courier.yandex.ru/api/v1/howto\n\n'
 
 
 def get_request_data(stream):

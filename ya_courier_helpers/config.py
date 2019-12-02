@@ -9,7 +9,7 @@ def is_int(s):
         return False
 
 
-API_URL = 'https://courier.common.yandex.ru/api/v1'
+API_URL = 'https://courier.yandex.ru/api/v1'
 
 YA_COURIER_TOKEN = os.environ.get('YA_COURIER_TOKEN')
 if not YA_COURIER_TOKEN:
@@ -26,4 +26,4 @@ YA_COURIER_URL = '{}/companies/{}'.format(API_URL, COMPANY_ID)
 ORDERS_BATCH_API_URL = API_URL + '/companies/{}/orders-batch'
 ORDERS_LIST_API_URL = API_URL + '/companies/{}/orders?date={}'
 TIMEOUT = 60
-MVRP_LOG_URL = 'https://courier.common.yandex.ru/vrs/api/v1/log/{}/{}'
+MVRP_LOG_URL = 'https://courier.yandex.ru/vrs/api/v1/log/{}/{}'

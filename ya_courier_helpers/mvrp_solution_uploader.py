@@ -285,8 +285,8 @@ def usage():
     return '\n\tYA_COURIER_TOKEN=<YA.COURIER TOKEN> YA_COURIER_COMPANY_ID=<YOUR COMPANY ID> ' + \
         'ya-courier-uploader --task-id <YOUR MVRP API TASK ID>\n\n' + \
         'This tool uploads MVRP solution to Ya.Courier Monitoring.\n\n' + \
-        'For MVRP API documentation visit https://courier.common.yandex.ru/vrs/api/v1/doc\n' + \
-        'For Ya.Courier API documentation visit https://courier.common.yandex.ru/api/v1/doc\n\n'
+        'For MVRP API documentation visit https://courier.yandex.ru/vrs/api/v1/doc\n' + \
+        'For Ya.Courier API documentation visit https://courier.yandex.ru/api/v1/doc\n\n'
 
 
 def main():
