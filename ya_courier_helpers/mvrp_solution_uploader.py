@@ -47,8 +47,7 @@ def upload_depot(depot, depot_address):
 
 
 def upload_couriers(couriers):
-    # j = post_request('couriers-batch', [{'number': c['ref'], 'name': c['ref']} for c in couriers])
-    j = post_request('couriers-batch', [{'number': str(c['id']), 'name': c['ref']} for c in couriers])
+    j = post_request('couriers-batch', [{'number': c.get('ref', str(c['id'])), 'name': c['ref']} for c in couriers])
     assert j['inserted'] + j['updated'] == len(couriers)
     logging.info('{} couriers uploaded'.format(len(couriers)))
 
