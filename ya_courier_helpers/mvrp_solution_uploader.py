@@ -63,8 +63,7 @@ def upload_routes(solution, depot):
                                         solution['options']['date']),
             'date': solution['options']['date'],
             'depot_number': depot.get('ref', str(depot['id'])),
-            # 'courier_number': veh_dict[r['vehicle_id']]['ref']
-            'courier_number': str(r['vehicle_id'])
+            'courier_number': veh_dict[r['vehicle_id']].get('ref', str(r['vehicle_id']))
         } for r in solution['routes']
     ])
     assert j['inserted'] + j['updated'] == len(solution['routes'])
